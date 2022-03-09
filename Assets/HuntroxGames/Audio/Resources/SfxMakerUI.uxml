@@ -1,0 +1,91 @@
+<ui:UXML xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="UnityEngine.UIElements ">
+    <ui:VisualElement name="header"
+                      style="flex-grow: 1; max-height: 24px; min-height: 24px; white-space: normal; flex-direction: row; flex-wrap: nowrap; justify-content: flex-start; align-items: center;">
+        <Style src="SfxMakerUI.uss"/>
+        <ui:Label text="Presets" display-tooltip-when-elided="true" name="presets-label" class="underline-title"
+                  style="-unity-text-align: middle-center; flex-grow: 1; max-width: 150px;"/>
+        <ui:Label text="Settings" display-tooltip-when-elided="true" name="settings-label" class="underline-title"
+                  style="-unity-text-align: middle-center; flex-grow: 1;"/>
+        <ui:Label text="Sound" display-tooltip-when-elided="true" name="sound-label" class="underline-title"
+                  style="-unity-text-align: middle-center; flex-grow: 1; max-width: 160px;"/>
+    </ui:VisualElement>
+    <ui:VisualElement name="body" style="flex-grow: 1;">
+        <Style src="SfxMakerUI.uss"/>
+        <ui:VisualElement name="horizontal-container"
+                          style="flex-grow: 1; flex-direction: row; background-color: rgba(0, 0, 0, 0.14); border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0); border-top-width: 1px;">
+            <ui:VisualElement name="presets-container" style="flex-grow: 1; max-width: 150px;">
+                <ui:Button text="Generate" display-tooltip-when-elided="true" focusable="false" name="generate-btn"
+                           class="buttons" style="max-height: 64px; min-height: 64px; display: none;"/>
+                <ui:ScrollView>
+                    <ui:Button text="Pickup/Coin" display-tooltip-when-elided="true" focusable="false" name="pickup-btn"
+                               class="buttons"/>
+                    <ui:Button text="Laser/Shoot" display-tooltip-when-elided="true" focusable="false" name="laser-btn"
+                               class="buttons"/>
+                    <ui:Button text="Explosion" display-tooltip-when-elided="true" focusable="false"
+                               name="explosion-btn" class="buttons"/>
+                    <ui:Button text="PowerUp" display-tooltip-when-elided="true" focusable="false" name="powerup-btn"
+                               class="buttons"/>
+                    <ui:Button text="Hurt/Hit" display-tooltip-when-elided="true" focusable="false" name="hurt-btn"
+                               class="buttons"/>
+                    <ui:Button text="Jump" display-tooltip-when-elided="true" focusable="false" name="jump-btn"
+                               class="buttons"/>
+                    <ui:Button text="Blip/Select" display-tooltip-when-elided="true" focusable="false" name="blip-btn"
+                               class="buttons"/>
+                </ui:ScrollView>
+                <ui:VisualElement name="flex-space" style="flex-grow: 1;"/>
+                <ui:Button text="Mutate" display-tooltip-when-elided="true" focusable="false" name="mutate-btn"
+                           class="buttons" style="max-height: 64px; min-height: 64px; display: none;"/>
+            </ui:VisualElement>
+            <ui:VisualElement name="settings-container"
+                              style="flex-grow: 1; border-left-width: 1px; border-right-width: 1px; border-left-color: rgb(0, 0, 0); border-right-color: rgb(0, 0, 0); border-top-color: rgb(0, 0, 0); border-bottom-color: rgb(0, 0, 0);">
+                <ui:ScrollView show-vertical-scroller="false" name="params-container" style="flex-grow: 1;">
+                    <ui:VisualElement name="setting-elem" class="sfx-maker_field" style="display: flex;">
+                        <ui:Label text="Volume" display-tooltip-when-elided="true" name="setting-label"
+                                  class="sfx-maker_field_label"/>
+                        <ui:Slider picking-mode="Ignore" value="50" high-value="100" name="setting-slider"
+                                   style="margin-left: 2px; margin-right: 2px; margin-top: 2px; margin-bottom: 2px; padding-left: 0; padding-right: 0; padding-top: 0; padding-bottom: 0; flex-grow: 1;">
+                            <ui:Label text="0.5" display-tooltip-when-elided="false" picking-mode="Ignore"
+                                      class="slider-label"/>
+                        </ui:Slider>
+                        <ui:Toggle name="setting-lock-toggle"
+                                   style="margin-left: 0; margin-right: 0; margin-top: 0; margin-bottom: 0;">
+                            <ui:VisualElement name="checkmark" picking-mode="Ignore" class="checkmark"/>
+                        </ui:Toggle>
+                    </ui:VisualElement>
+                    <ui:VisualElement focusable="false" class="sfx-maker_field"
+                                      style="justify-content: space-between; align-items: stretch;"/>
+                    <WaveFormTabsUIElement class="params-tabs"/>
+                </ui:ScrollView>
+            </ui:VisualElement>
+            <ui:VisualElement name="sound-container" style="flex-grow: 1; max-width: 150px;">
+                <ui:VisualElement name="recent-container" style="flex-grow: 1;">
+                    <ui:Label text="Recent" display-tooltip-when-elided="true"
+                              style="-unity-font-style: bold; color: rgb(255, 255, 255); -unity-text-align: upper-center; display: none;"/>
+                    <ui:ScrollView name="recent-view" style="flex-grow: 1;"/>
+                </ui:VisualElement>
+                <ui:VisualElement name="flex-space" style="flex-grow: 1; max-width: none; min-width: 50px;"/>
+                <WaveFormTabsUIElement name="sample-rate-tabs"
+                                       style="flex-grow: 1; max-height: 32px; min-height: 32px; border-top-color: rgba(0, 0, 0, 0.15); border-top-width: 2px;"/>
+                <ui:Label text="Vol" display-tooltip-when-elided="true"
+                          style="font-size: 10px; margin-left: 3px; color: rgb(255, 255, 255); -unity-text-align: upper-left; padding-left: 0; padding-right: 2px; padding-top: 2px; padding-bottom: 2px; -unity-font-style: normal;"/>
+                <ui:Slider picking-mode="Ignore" value="0.5" high-value="1" name="vol-slider"
+                           style="height: 8px; font-size: 10px;"/>
+                <ui:Button text="Play" display-tooltip-when-elided="true" focusable="false" name="play-btn"
+                           class="buttons"/>
+                <ui:Button text="Export" display-tooltip-when-elided="true" focusable="false" name="export-btn"
+                           class="buttons"/>
+                <VUMeterUIElement
+                        style="flex-grow: 1; margin-left: 3px; margin-right: 3px; margin-top: 1px; margin-bottom: 1px; max-width: 160px; height: 8px; min-height: 5px; max-height: 8px; flex-shrink: 0;"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+    </ui:VisualElement>
+    <ui:VisualElement name="footer"
+                      style="flex-grow: 1; max-height: 21px; min-height: 21px; flex-direction: row; border-top-width: 1px; background-color: rgb(60, 60, 60); border-left-color: rgb(35, 35, 35); border-right-color: rgb(35, 35, 35); border-top-color: rgb(35, 35, 35); border-bottom-color: rgb(35, 35, 35);">
+        <Style src="SfxMakerUI.uss"/>
+        <ui:Label text="(Port of sfxr by DrPetter)" display-tooltip-when-elided="true"
+                  style="-unity-font-style: normal; font-size: 8px; -unity-text-align: middle-left; flex-grow: 1; flex-shrink: 1; border-top-color: rgb(35, 35, 35); border-top-width: 1px; border-left-color: rgb(35, 35, 35); border-right-color: rgb(35, 35, 35); border-bottom-color: rgb(35, 35, 35); white-space: nowrap; display: flex; visibility: visible;"/>
+        <uie:ProgressBar title="exportProgress" name="export-progress" low-value="0" high-value="1"
+                         style="flex-grow: 1; visibility: visible; -unity-font-style: normal;"/>
+    </ui:VisualElement>
+</ui:UXML>
