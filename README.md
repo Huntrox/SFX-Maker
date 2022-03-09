@@ -1,5 +1,5 @@
 # SFX-Maker
-Sfx Maker Is a Unity Editor 8 bit sound generator,can be used to generate 8bit/retro sound effects to use in your game.
+Sfx Maker Is a Unity Editor 8 bit sound generator, can be used to generate 8bit/retro sound effects to use in your game.
 
 this is unity/c# port of the original sfxr by [DrPetter](https://www.drpetter.se/project_sfxr.html). 
 
