@@ -18,3 +18,6 @@ this is unity/c# port of the original sfxr by [DrPetter](https://www.drpetter.se
 
 
 ![gif](https://i.imgur.com/NPNsWyT.gif)
+
+## Requirement
+- Unity 2019.4.34f1 LTS or later
